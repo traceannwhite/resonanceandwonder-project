@@ -19,6 +19,7 @@
     "id": 3,
     "product": "Warm Winter Eco-Friendly Bamboo Socks",
     "category": "clothing",
+    "seller": "OccasionsCardsGB",
     "image": "/image/eco-socks.png",
     "price": 49.99
   },
@@ -26,6 +27,7 @@
     "id": 7,
     "product": "Chicken Shirt / Chicken Clothing / Chicken T Shirt / Women's Chicken Shirt / Chickens / Love Chickens / Chicken Love / Chicken Tee Shirt Bestseller",
     "category": "clothing",
+    "seller": "LovesUSA",
     "image": "/image/chicken-shirt.png",
     "price": 18.99
   },
@@ -33,6 +35,7 @@
     "id": 13,
     "product": "Pots",
     "category": "home",
+    "seller": "MiracleArtPrints",
     "image": "/image/boho-pots.png",
     "price": 59.99
   },
@@ -40,6 +43,7 @@
     "id": 16,
     "product": "Avocado Body Butter - All Natural, Eczema-friendly Ingredients",
     "category": "self-care",
+    "seller": "TheBodyShop",
     "image": "/image/the-body-shop-body-butter.png",
     "price": 14.99
   },
@@ -47,6 +51,7 @@
     "id": 22,
     "product": "Beeswax Wrap - Reusable Beeswax Food Wrap - Natural Living Accessories - Eco friendly kitchen",
     "category": "eco-friendly",
+    "seller": "FreewheelinMarket",
     "image": "/image/beeswax-wrap.png",
     "price": 59.99
   }

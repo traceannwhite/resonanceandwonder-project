@@ -7,10 +7,10 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles}>
-      <Image src={product.image} height={300} width={220} />
+    <div className={styles.card}>
+      <img src={product.image} className={styles.image} />
       <h4 className={styles.title}>{product.product}</h4>
-      <h5 className={styles.category}>{product.category}</h5>
+      <h5 className={styles.seller}>{product.seller}</h5>
       <p>$ {product.price}</p>
       <button
         onClick={() => dispatch(addToCart(product))}

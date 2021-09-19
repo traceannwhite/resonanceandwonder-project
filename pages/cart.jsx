@@ -22,13 +22,13 @@ const CartPage = () => {
     <div className={styles.container}>
       <div className={styles.title}>Items in Your Cart</div>
       {cart.length === 0 ? (
-        <h1>There is nothing in your cart,</h1>
+        <h1>There is nothing in your cart, yet!</h1>
       ) : (
         <div className={styles.grid}>
           {cart.map((item) => (
             <div className={styles.card}>
               <div>
-                <p>Seller Name</p>
+                <p>{item.seller}</p>
               </div>
               <div className={styles.details}>
                 <div className={styles.image}>
