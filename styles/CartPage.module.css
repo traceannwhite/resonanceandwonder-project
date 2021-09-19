@@ -1,0 +1,67 @@
+.container {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  max-width: 1200px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(195, 195, 195, 0.681);
+  border-radius: 5px;
+  padding: 10px;
+  grid-column: 1 / 2;
+}
+
+.title {
+  font-size: 1rem;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.image {
+  width: 100%;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.5fr 0.5fr;
+}
+
+.quantity {
+  padding: 0 15px;
+  text-align: center;
+}
+.price {
+  padding: 0 15px;
+}
+.buttons {
+  text-align: center;
+  padding: 5px;
+  margin: 0 5px;
+}
+
+.button {
+  padding: 5px;
+  margin: 5px 10px;
+}
+
+.checkout {
+  border: 1px black solid;
+  padding: 1em;
+  margin: 0 0 0 10px;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
