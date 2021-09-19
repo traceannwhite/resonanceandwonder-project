@@ -6,11 +6,13 @@
   display: flex;
 }
 
+.cards {
+  display: flex;
+  overflow: scroll;
+}
 @media screen and (max-width: 600px) {
   .small {
-    grid-template-columns: 1fr;
-  }
-  .large {
+    display: grid;
     grid-template-columns: 1fr;
   }
 }

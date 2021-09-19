@@ -1,0 +1,35 @@
+.hero {
+  display: flex;
+}
+
+.image {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.tagline {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .image {
+    display: none;
+  }
+
+  .tagline {
+    width: 100%;
+    background-image: url(http://res.cloudinary.com/dhcagrzcb/image/upload/v1626735924/mountain-547363_jrh8ct.jpg);
+    background-size: cover;
+    min-height: 250px;
+    border-radius: 10px;
+  }
+}
