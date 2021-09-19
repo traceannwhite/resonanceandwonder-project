@@ -32,14 +32,6 @@
     "price": 18.99
   },
   {
-    "id": 13,
-    "product": "Pots",
-    "category": "home",
-    "seller": "MiracleArtPrints",
-    "image": "/image/boho-pots.png",
-    "price": 59.99
-  },
-  {
     "id": 16,
     "product": "Avocado Body Butter - All Natural, Eczema-friendly Ingredients",
     "category": "self-care",

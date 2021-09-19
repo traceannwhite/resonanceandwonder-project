@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import ProductCard from "../../components/ProductCard";
 import styles from "../../styles/ShopPage.module.css";
 import { getProductsByCategory } from "../api/products/[category]";
@@ -14,14 +15,15 @@ const CategoryPage = ({ products }) => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <Link href="/">Go Back</Link>
     </div>
   );
 };
-
-export default CategoryPage;
 
 export async function getServerSideProps(ctx) {
   const category = ctx.query.category;
   const products = await getProductsByCategory(category);
   return { props: { products } };
 }
+
+export default CategoryPage;
