@@ -16,10 +16,10 @@ const NavBar = () => {
       </Link>
       <ul className={styles.links}>
         <li className={styles.navlink}>
-          <Link href="/">Home</Link>
+          <Link href="/shop">Shop</Link>
         </li>
         <li className={styles.navlink}>
-          <Link href="/shop">Shop</Link>
+          <Link href="/sellerprofile">My Profile</Link>
         </li>
         <li className={styles.navlink}>
           <Link href="/cart">

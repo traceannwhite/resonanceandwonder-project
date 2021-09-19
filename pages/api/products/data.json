@@ -5,7 +5,10 @@
     "category": "home",
     "seller": "MiracleArtPrints",
     "image": "/image/boho-wall-art.png",
-    "price": 36
+    "price": 36,
+    "quantity": 50,
+    "SKU": "",
+    "description": "Description is TBD"
   },
   {
     "id": 2,
@@ -13,7 +16,10 @@
     "category": "home",
     "seller": "MiracleArtPrints",
     "image": "/image/boho-pots.png",
-    "price": 30
+    "price": 30,
+    "quantity": 50,
+    "SKU": "",
+    "description": "Description is TBD"
   },
   {
     "id": 3,
@@ -21,7 +27,10 @@
     "category": "clothing",
     "seller": "OccasionsCardsGB",
     "image": "/image/eco-socks.png",
-    "price": 49.99
+    "price": 49.99,
+    "quantity": 10,
+    "SKU": "",
+    "description": "Description is TBD"
   },
   {
     "id": 7,
@@ -29,7 +38,10 @@
     "category": "clothing",
     "seller": "LovesUSA",
     "image": "/image/chicken-shirt.png",
-    "price": 18.99
+    "price": 18.99,
+    "quantity": 50,
+    "SKU": "",
+    "description": "Description is TBD"
   },
   {
     "id": 16,
@@ -37,7 +49,10 @@
     "category": "self-care",
     "seller": "TheBodyShop",
     "image": "/image/the-body-shop-body-butter.png",
-    "price": 14.99
+    "price": 14.99,
+    "quantity": 50,
+    "SKU": "",
+    "description": "Description is TBD"
   },
   {
     "id": 22,
@@ -45,6 +60,9 @@
     "category": "eco-friendly",
     "seller": "FreewheelinMarket",
     "image": "/image/beeswax-wrap.png",
-    "price": 59.99
+    "price": 59.99,
+    "quantity": 50,
+    "SKU": "",
+    "description": "Description is TBD"
   }
 ]

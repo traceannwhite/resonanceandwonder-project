@@ -1,0 +1,14 @@
+.container {
+  margin: 2em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
