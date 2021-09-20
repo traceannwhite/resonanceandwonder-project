@@ -14,8 +14,10 @@ const product = ({ product }) => {
   const [filteredProduct, setFilteredProduct] = useState([]);
 
   const getFilteredProduct = async () => {
-    const response = await fetch(`$/product/{id}`);
+    const response = await fetch("/product/[id]");
     const product = await response.json();
+    // const id = product.id;
+    // const product = await getProducts(id);
     setFilteredProduct(product.filter((product) => product.id === id));
   };
 
