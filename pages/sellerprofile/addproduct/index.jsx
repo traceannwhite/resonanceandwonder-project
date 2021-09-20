@@ -49,7 +49,7 @@ const AddProduct = () => {
             aria-label="image"
             placeholder="Add Photo of Your Product"
             accept="image/png, image/jpeg, image/heic"
-            value={input}
+            value={input.image}
             onChange={handleChange}
           />
         </label>
@@ -60,7 +60,7 @@ const AddProduct = () => {
             type="text"
             aria-label="Product Name"
             placeholder="Add a Name for your Product"
-            value={input}
+            value={input.product}
             onChange={handleChange}
           />
           <input
@@ -68,7 +68,7 @@ const AddProduct = () => {
             type="text"
             aria-label="Description"
             placeholder="Add a description for your product."
-            value={input}
+            value={input.description}
             onChange={handleChange}
           />
           <input
@@ -76,7 +76,7 @@ const AddProduct = () => {
             type="text"
             aria-label="Category"
             placeholder="Category"
-            value={input}
+            value={input.category}
             onChange={handleChange}
           />
         </label>
@@ -87,7 +87,7 @@ const AddProduct = () => {
             type="number"
             aria-label="price"
             placeholder="Price"
-            value={input}
+            value={input.price}
             onChange={handleChange}
           />
           <input
@@ -95,7 +95,7 @@ const AddProduct = () => {
             type="number"
             aria-label="Quantity"
             placeholder="Quantity"
-            value={input}
+            value={input.quantity}
             onChange={handleChange}
           />
           <input
@@ -103,7 +103,7 @@ const AddProduct = () => {
             type="number"
             aria-label="SKU"
             placeholder="SKU Number"
-            value={input}
+            value={input.SKU}
             onChange={handleChange}
           />
         </label>
