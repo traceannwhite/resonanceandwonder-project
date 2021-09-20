@@ -1,10 +1,8 @@
-import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../api/products/index";
 import styles from "../../../styles/ProductPage.module.css";
-import { useState, useEffect } from "react";
 
-const product = ({ filteredProduct }) => {
+const Product = ({ filteredProduct }) => {
   const dispatch = useDispatch();
 
   return (
@@ -45,4 +43,4 @@ export const getServerSideProps = async (ctx) => {
   return { props: { filteredProduct: filteredProduct[0] } };
 };
 
-export default product;
+export default Product;
