@@ -26,13 +26,13 @@ const CartPage = () => {
       ) : (
         <div className={styles.grid}>
           {cart.map((item) => (
-            <div className={styles.card}>
+            <div key={item.id} className={styles.card}>
               <div>
                 <p>{item.seller}</p>
               </div>
               <div className={styles.details}>
                 <div className={styles.image}>
-                  <Image src={item.image} height="100" width="100" />
+                  <Image src={item.image} alt="" height="100" width="100" />
                 </div>
                 <p>{item.product}</p>
                 <p className={styles.quantity}>{item.quantity}</p>
