@@ -1,26 +1,29 @@
-import styles from "../../../styles/NewProductForm.module.css";
+import styles from "../../../styles/NewProductPage.module.css";
 import { useState } from "react";
 import { server } from "../../../congif";
+import { useRouter } from "next/router";
 
-const AddNewProduct = () => {
+const NewProductPage = () => {
   //create and set the state to grab the value the seller enters
   const [newProduct, setNewProduct] = useState("");
+  const router = useRouter();
+  console.log(router);
 
   const addNewProduct = async (e) => {
     e.preventDefault(); // prevents page reload
     try {
-      const res = await fetch(`${server}/api/products`, {
+      const res = await fetch(`${server}/api/products/product`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ newProduct }),
+        body: JSON.stringify(newProduct),
       });
       const data = await res.json();
-      console.log(data);
 
       if (res.status === 200) {
         alert("Your product has been added to the products page!");
+        router.push("/sellerprofile");
       } else {
         alert("Sorry, something went wrong.");
       }
@@ -33,15 +36,9 @@ const AddNewProduct = () => {
     setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
   };
 
-  const handleSubmission = (e) => {
-    e.preventDefault();
-    handleSubmit(newProduct);
-    history.push("/sellerprofile");
-  };
-
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmission}>
+      <form className={styles.form}>
         <label className={styles.box}>
           Photos
           <input
@@ -125,64 +122,4 @@ const AddNewProduct = () => {
   );
 };
 
-export default AddNewProduct;
-
-//  // State to Hold list of Products
-//  const [products, setProducts] = useState([]);
-
-//  const nullProduct = {
-//    product: "",
-//    category: "",
-//    seller: "",
-//    image: "",
-//    price: "",
-//    quantity: "",
-//    SKU: "",
-//    description: "",
-//  };
-
-//  const [targetProduct, setTargetProduct] = useState(nullBook);
-
-//  /////////////////////
-//  // Functions
-//  /////////////////////
-//  const getProducts = async () => {
-//    const response = await fetch(url);
-//    const data = await response.json();
-//    setProducts(data);
-//  };
-
-//  const addProduct = async (newProduct) => {
-//    const response = await fetch(url, {
-//      method: "post",
-//      headers: {
-//        "Content-Type": "application/json",
-//      },
-//      body: JSON.stringify(newProduct),
-//    });
-//    getProducts();
-//  };
-
-//  const getTargetProduct = async (product) => {
-//    setTargetProduct(product);
-//    props.history.push("/edit");
-//  };
-
-//  const updateProduct = async (product) => {
-//    const response = await fetch(url + product.id + "/", {
-//      method: "put",
-//      headers: {
-//        "Content-Type": "application/json",
-//      },
-//      body: JSON.stringify(product),
-//    });
-//    getProducts();
-//  };
-
-//  const deleteProduct = async (product) => {
-//    const response = await fetch(url + product.id + "/", {
-//      method: "delete",
-//    });
-//    getProducts();
-//    props.history.push("/sellerprofile");
-//  };
+export default NewProductPage;

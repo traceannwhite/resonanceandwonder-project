@@ -1,16 +1,33 @@
-// import { products } from "../data.json";
+// This if for /api/products/product/:id
 
-// export default function handler({ query: { id } }, res) {
-//   const filteredProduct = products.filter((product) => product.id === id);
+import { getProducts } from "../../products/index";
 
-//   if (filteredProduct.length > 0) {
-//     res.status(200).json(filteredProduct[0]);
-//   } else {
-//     res.status(404).json({ message: `Product ${id} is not found` });
-//   }
-// }
+export default function handler(req, res) {
+  switch (req.method) {
+    // case "GET":
+    //   return getProductBySeller();
+    case "PUT":
+      return updateProduct();
+    case "DELETE":
+      return deleteProduct();
+    default:
+      res.setHeaders("Allow", ["POST", "PUT", "DELETE"]);
+      return res.status(405).end(`Method ${req.method} is not allowed`);
+  }
 
-// export default function handler(req, res) {
-//   if (req.method === 'POST') {
-//       res.status(200).json(input);
-// }
+  function updateProduct() {
+    try {
+      res.json(getProducts().findByIdAndUpdate(req.body));
+    } catch (error) {
+      res.status(400).json(error);
+    }
+  }
+
+  function deleteProduct() {
+    try {
+      res.json(getProducts().findByIdAndDelete(req.body));
+    } catch (error) {
+      res.status(400).json(error);
+    }
+  }
+}

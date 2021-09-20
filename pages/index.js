@@ -10,11 +10,11 @@ export default function Home({ products }) {
       <main className={styles.container}>
         <Hero />
         <h1>Products</h1>
-        <div className={styles.cards}>
+        <ul className={styles.cards}>
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </div>
+        </ul>
         <h1>Product Categories</h1>
         <div className={styles.small}>
           <CategoryCard

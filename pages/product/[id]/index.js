@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../api/products/index";
+import { addToCart } from "../../../redux/cart.slice";
 // import { server } from "../../../next.config";
 import styles from "../../../styles/ProductPage.module.css";
 

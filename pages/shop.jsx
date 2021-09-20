@@ -17,7 +17,7 @@ const ShopPage = ({ products }) => {
 
 export default ShopPage;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const products = await getProducts();
   return { props: { products } };
 }

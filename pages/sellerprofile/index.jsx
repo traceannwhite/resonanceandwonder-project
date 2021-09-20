@@ -1,7 +1,9 @@
 import Link from "next/link";
+import SellersProducts from "../../components/SellersProducts";
 import styles from "../../styles/SellerProfile.module.css";
+import { getProducts } from "../api/products";
 
-const SellerProfile = () => {
+const SellerProfile = ({ products }) => {
   return (
     <div className={styles.container}>
       <h1>Seller Profile</h1>
@@ -19,12 +21,16 @@ const SellerProfile = () => {
       </div>
       <div className={styles.infobox}>
         <h3>Your Current Products</h3>
-        <p className={styles.info}>
-          List of the Seller's current products will go here.
-        </p>
+        {products.map((product) => (
+          <SellersProducts key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );
 };
 
+export async function getServerSideProps() {
+  const products = await getProducts();
+  return { props: { products } };
+}
 export default SellerProfile;
