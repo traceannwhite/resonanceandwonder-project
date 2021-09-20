@@ -1,9 +1,46 @@
 import styles from "../../../styles/AddProductForm.module.css";
+import { useState } from "react";
 
-const index = () => {
+const AddProduct = () => {
+  //create and set the state to grab the value the seller enters
+  const [input, setInput] = useState("");
+
+  const addProduct = async (e) => {
+    e.preventDefault(); // prevents page reload
+    try {
+      const res = await fetch("../api/products/newproduct", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          emailAddress: input,
+        }),
+      });
+
+      if (res.status === 200) {
+        alert("Your product has been added to the products page!");
+      } else {
+        alert("Sorry, something went wrong.");
+      }
+    } catch (err) {
+      alert("Sorry, something went wrong.");
+    }
+  };
+
+  const handleChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmission = (e) => {
+    e.preventDefault();
+    handleSubmit(input);
+    history.push("/sellerprofile");
+  };
+
   return (
     <div className={styles.container}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmission}>
         <label className={styles.box}>
           Photos
           <input
@@ -12,6 +49,8 @@ const index = () => {
             aria-label="image"
             placeholder="Add Photo of Your Product"
             accept="image/png, image/jpeg, image/heic"
+            value={input}
+            onChange={handleChange}
           />
         </label>
         <label className={styles.box}>
@@ -21,18 +60,24 @@ const index = () => {
             type="text"
             aria-label="Product Name"
             placeholder="Add a Name for your Product"
+            value={input}
+            onChange={handleChange}
           />
           <input
             id="description"
             type="text"
             aria-label="Description"
             placeholder="Add a description for your product."
+            value={input}
+            onChange={handleChange}
           />
           <input
             id="category"
             type="text"
             aria-label="Category"
             placeholder="Category"
+            value={input}
+            onChange={handleChange}
           />
         </label>
         <label className={styles.box}>
@@ -42,29 +87,32 @@ const index = () => {
             type="number"
             aria-label="price"
             placeholder="Price"
+            value={input}
+            onChange={handleChange}
           />
           <input
             id="quantity"
             type="number"
             aria-label="Quantity"
             placeholder="Quantity"
+            value={input}
+            onChange={handleChange}
           />
           <input
             id="SKU"
             type="number"
             aria-label="SKU"
             placeholder="SKU Number"
+            value={input}
+            onChange={handleChange}
           />
         </label>
       </form>
-      <button
-        className="bg-blue-600 hover:bg-blue-700 duration-300 text-white shadow p-2 rounded-r"
-        type="submit"
-      >
+      <button type="submit" onClick={addProduct}>
         Submit Product
       </button>
     </div>
   );
 };
 
-export default index;
+export default AddProduct;

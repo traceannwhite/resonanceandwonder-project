@@ -13,3 +13,8 @@ export default function handler(req, res) {
     res.status(200).json(products);
   }
 }
+
+// export function getProduct() {
+//   const data = data.filter((product) => product.id === id);
+//   return data;
+// }

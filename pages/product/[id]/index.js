@@ -1,39 +1,48 @@
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import Link from "next/link";
-// import { getProductsById } from "../api/product/[id]";
 import { getProducts } from "../../api/products/index";
-// import ProductCard from "../../../components/ProductCard";
 import styles from "../../../styles/ProductCard.module.css";
-// import data from "../../api/products/data.json";
+import { useState, useEffect } from "react";
 
 const product = ({ product }) => {
   console.log(product);
+
   // const router = useRouter();
   // const { id } = router.query;
-
   const dispatch = useDispatch();
+
+  const [filteredProduct, setFilteredProduct] = useState([]);
+
+  const getFilteredProduct = async () => {
+    const response = await fetch(`$/product/{id}`);
+    const product = await response.json();
+    setFilteredProduct(product.filter((product) => product.id === id));
+  };
+
+  console.log(getFilteredProduct());
+
+  useEffect(() => {
+    getFilteredProduct;
+  }, []);
 
   return (
     <div>
       {/* <div>This is product {id}</div> */}
       <div>
-        {product.map((product) => (
-          <div key={product.id} className={styles.card}>
-            <img src={product.image} className={styles.image} />
-            <h4 className={styles.title}>{product.product}</h4>
-            <h5 className={styles.seller}>{product.seller}</h5>
-            <p>$ {product.price}</p>
-            <button
-              onClick={() => dispatch(addToCart(product))}
-              className={styles.button}
-            >
-              Add to Cart
-            </button>
-          </div>
-        ))}
+        <div key={filteredProduct.id} className={styles.card}>
+          <img src={filteredProduct.image} className={styles.image} />
+          <h4 className={styles.title}>{filteredProduct.product}</h4>
+          <h5 className={styles.seller}>{filteredProduct.seller}</h5>
+          <p>$ {filteredProduct.price}</p>
+          <p>{filteredProduct.description}</p>
+          <button
+            onClick={() => dispatch(addToCart(product))}
+            className={styles.button}
+          >
+            Add to Cart
+          </button>
+        </div>
       </div>
-      <Link href="/shop">Go Back</Link>
     </div>
   );
 };
