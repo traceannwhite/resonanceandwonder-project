@@ -8,7 +8,7 @@ module.exports = {
   },
 };
 
-const dev = process.env.NODE_ENV !== "production";
-export const server = dev
-  ? "http:/localhost:3000"
-  : "https://resonanceandwonder-project.vercel.app/";
+// const dev = process.env.NODE_ENV !== "production";
+// export const server = dev
+//   ? "http:/localhost:3000"
+//   : "https://resonanceandwonder-project.vercel.app/";
