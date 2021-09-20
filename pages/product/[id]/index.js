@@ -1,48 +1,36 @@
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../api/products/index";
-import styles from "../../../styles/ProductCard.module.css";
+import styles from "../../../styles/ProductPage.module.css";
 import { useState, useEffect } from "react";
 
 const product = ({ filteredProduct }) => {
-  // console.log(product, id);
-
-  // const router = useRouter();
-  // const { id } = router.query;
   const dispatch = useDispatch();
 
-  // const [filteredProduct, setFilteredProduct] = useState([]);
-
-  // const getFilteredProduct = async () => {
-  //   const response = await fetch(`$/product/{id`);
-  //   const product = await response.json();
-  //   // const id = product.id;
-  //   // const product = await getProducts(id);
-  //   setFilteredProduct(product.filter((product) => product.id === id));
-  // };
-
-  // // console.log(getFilteredProduct());
-
-  // useEffect(() => {
-  //   getFilteredProduct;
-  // }, []);
-
   return (
-    <div>
-      {/* <div>This is product {id}</div> */}
-      <div>
-        <div key={filteredProduct.id} className={styles.card}>
+    <div className={styles.container}>
+      <div key={filteredProduct.id} className={styles.display}>
+        <div>
           <img src={filteredProduct.image} className={styles.image} />
-          <h4 className={styles.title}>{filteredProduct.product}</h4>
+          <div className={styles.reviews}>
+            <h4 className={styles.title}>Reviews</h4>
+            <p>List of Reviews</p>
+          </div>
+        </div>
+        <div className={styles.details}>
           <h5 className={styles.seller}>{filteredProduct.seller}</h5>
-          <p>$ {filteredProduct.price}</p>
-          <p>{filteredProduct.description}</p>
+          <h4 className={styles.title}>{filteredProduct.product}</h4>
+          <p>${filteredProduct.price}</p>
           <button
             onClick={() => dispatch(addToCart(product))}
             className={styles.button}
           >
             Add to Cart
           </button>
+          <div className={styles.descriptionbox}>
+            <h4 className={styles.title}>Description</h4>
+            <p className={styles.description}>{filteredProduct.description}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -50,13 +38,9 @@ const product = ({ filteredProduct }) => {
 };
 
 export const getServerSideProps = async (ctx) => {
-  // console.log(ctx);
   const id = parseInt(ctx.params.id);
-  console.log("id", id);
   const product = await getProducts(id);
-  console.log("product", product);
   const filteredProduct = product.filter((product) => product.id === id);
-  console.log(filteredProduct);
 
   return { props: { filteredProduct: filteredProduct[0] } };
 };

@@ -1,0 +1,49 @@
+.container {
+  margin: 1em;
+}
+
+.display {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  max-width: 600px;
+}
+
+.details {
+  padding: 0 1em;
+  min-width: 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.3em;
+}
+
+.button {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 1em;
+  background: teal;
+  text-transform: uppercase;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background: white;
+  color: teal;
+  border: 1px solid teal;
+}
+
+.description {
+  font-size: 0.8em;
+}
+
+.title {
+  font-size: 16px;
+}
