@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.card}>
+    <div>
       <Link href={`/product/${product.id}`}>
         <div className={styles.card}>
           <img src={product.image} className={styles.image} />

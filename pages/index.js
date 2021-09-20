@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Hero from "../components/Hero";
 import CategoryCard from "../components/CategoryCard";
@@ -9,11 +7,6 @@ import { getProducts } from "../pages/api/products/index";
 export default function Home({ products }) {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Res and Wonder</title>
-        <meta name="description" />
-      </Head>
-
       <main className={styles.container}>
         <Hero />
         <h1>Products</h1>

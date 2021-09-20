@@ -1,7 +1,7 @@
-import styles from "../../../styles/AddProductForm.module.css";
+import styles from "../../../styles/NewProductForm.module.css";
 import { useState } from "react";
 
-const AddProduct = () => {
+const NewProduct = () => {
   //create and set the state to grab the value the seller enters
   const [input, setInput] = useState("");
 
@@ -115,4 +115,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default NewProduct;

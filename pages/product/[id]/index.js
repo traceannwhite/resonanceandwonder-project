@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../api/products/index";
+// import { server } from "../../../next.config";
 import styles from "../../../styles/ProductPage.module.css";
 
 const Product = ({ filteredProduct }) => {
@@ -20,7 +21,7 @@ const Product = ({ filteredProduct }) => {
           <h4 className={styles.title}>{filteredProduct.product}</h4>
           <p>${filteredProduct.price}</p>
           <button
-            onClick={() => dispatch(addToCart(product))}
+            onClick={() => dispatch(addToCart(filteredProduct))}
             className={styles.button}
           >
             Add to Cart
@@ -43,4 +44,27 @@ export const getServerSideProps = async (ctx) => {
   return { props: { filteredProduct: filteredProduct[0] } };
 };
 
+// export const getStaticProps = async (ctx) => {
+//   const id = parseInt(ctx.params.id);
+//   const res = await fetch(`${server}/api/products/product/${id}`);
+//   const product = await res.json();
+
+//   return {
+//     props: {
+//       product,
+//     },
+//   };
+// };
+
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`${server}/api/products`);
+//   const products = await res.json;
+//   const ids = products.map((product) => product.id);
+//   const paths = ids.map((id) => ({ params: { id: id.toString() } }));
+
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 export default Product;
