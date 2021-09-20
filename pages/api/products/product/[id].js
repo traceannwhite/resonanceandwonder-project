@@ -9,3 +9,8 @@
 //     res.status(404).json({ message: `Product ${id} is not found` });
 //   }
 // }
+
+// export default function handler(req, res) {
+//   if (req.method === 'POST') {
+//       res.status(200).json(input);
+// }

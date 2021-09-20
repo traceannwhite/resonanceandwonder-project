@@ -1,22 +1,23 @@
 import styles from "../../../styles/NewProductForm.module.css";
 import { useState } from "react";
+import { server } from "../../../congif";
 
-const NewProduct = () => {
+const AddNewProduct = () => {
   //create and set the state to grab the value the seller enters
-  const [input, setInput] = useState("");
+  const [newProduct, setNewProduct] = useState("");
 
-  const addProduct = async (e) => {
+  const addNewProduct = async (e) => {
     e.preventDefault(); // prevents page reload
     try {
-      const res = await fetch("../api/products/newproduct", {
-        method: "post",
+      const res = await fetch(`${server}/api/products`, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          emailAddress: input,
-        }),
+        body: JSON.stringify({ newProduct }),
       });
+      const data = await res.json();
+      console.log(data);
 
       if (res.status === 200) {
         alert("Your product has been added to the products page!");
@@ -29,12 +30,12 @@ const NewProduct = () => {
   };
 
   const handleChange = (e) => {
-    setInput({ ...input, [e.target.name]: e.target.value });
+    setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
   };
 
   const handleSubmission = (e) => {
     e.preventDefault();
-    handleSubmit(input);
+    handleSubmit(newProduct);
     history.push("/sellerprofile");
   };
 
@@ -44,75 +45,144 @@ const NewProduct = () => {
         <label className={styles.box}>
           Photos
           <input
+            className={styles.inputbox}
             id="image"
             type="file"
             aria-label="image"
             placeholder="Add Photo of Your Product"
             accept="image/png, image/jpeg, image/heic"
-            value={input.image}
+            value={newProduct.image}
             onChange={handleChange}
           />
         </label>
         <label className={styles.box}>
           Listing Details
           <input
+            className={styles.inputbox}
             id="product"
             type="text"
             aria-label="Product Name"
             placeholder="Add a Name for your Product"
-            value={input.product}
+            value={newProduct.product}
             onChange={handleChange}
           />
           <input
+            className={styles.inputbox}
             id="description"
             type="text"
             aria-label="Description"
             placeholder="Add a description for your product."
-            value={input.description}
+            value={newProduct.description}
             onChange={handleChange}
           />
           <input
+            className={styles.inputbox}
             id="category"
             type="text"
             aria-label="Category"
             placeholder="Category"
-            value={input.category}
+            value={newProduct.category}
             onChange={handleChange}
           />
         </label>
         <label className={styles.box}>
           Inventory and Pricing
           <input
+            className={styles.inputbox}
             id="price"
             type="number"
             aria-label="price"
             placeholder="Price"
-            value={input.price}
+            value={newProduct.price}
             onChange={handleChange}
           />
           <input
+            className={styles.inputbox}
             id="quantity"
             type="number"
             aria-label="Quantity"
             placeholder="Quantity"
-            value={input.quantity}
+            value={newProduct.quantity}
             onChange={handleChange}
           />
           <input
+            className={styles.inputbox}
             id="SKU"
             type="number"
             aria-label="SKU"
             placeholder="SKU Number"
-            value={input.SKU}
+            value={newProduct.SKU}
             onChange={handleChange}
           />
         </label>
       </form>
-      <button type="submit" onClick={addProduct}>
-        Submit Product
-      </button>
+      <div className={styles.btncontainer}>
+        <button type="submit" onClick={addNewProduct} className={styles.button}>
+          Submit Product
+        </button>
+      </div>
     </div>
   );
 };
 
-export default NewProduct;
+export default AddNewProduct;
+
+//  // State to Hold list of Products
+//  const [products, setProducts] = useState([]);
+
+//  const nullProduct = {
+//    product: "",
+//    category: "",
+//    seller: "",
+//    image: "",
+//    price: "",
+//    quantity: "",
+//    SKU: "",
+//    description: "",
+//  };
+
+//  const [targetProduct, setTargetProduct] = useState(nullBook);
+
+//  /////////////////////
+//  // Functions
+//  /////////////////////
+//  const getProducts = async () => {
+//    const response = await fetch(url);
+//    const data = await response.json();
+//    setProducts(data);
+//  };
+
+//  const addProduct = async (newProduct) => {
+//    const response = await fetch(url, {
+//      method: "post",
+//      headers: {
+//        "Content-Type": "application/json",
+//      },
+//      body: JSON.stringify(newProduct),
+//    });
+//    getProducts();
+//  };
+
+//  const getTargetProduct = async (product) => {
+//    setTargetProduct(product);
+//    props.history.push("/edit");
+//  };
+
+//  const updateProduct = async (product) => {
+//    const response = await fetch(url + product.id + "/", {
+//      method: "put",
+//      headers: {
+//        "Content-Type": "application/json",
+//      },
+//      body: JSON.stringify(product),
+//    });
+//    getProducts();
+//  };
+
+//  const deleteProduct = async (product) => {
+//    const response = await fetch(url + product.id + "/", {
+//      method: "delete",
+//    });
+//    getProducts();
+//    props.history.push("/sellerprofile");
+//  };
