@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
-import { getProducts } from "../../api/products/index";
+// import { getProducts } from "../../api/products/index";
 import { addToCart } from "../../../redux/cart.slice";
-// import { server } from "../../../next.config";
 import styles from "../../../styles/ProductPage.module.css";
 
 const Product = ({ filteredProduct }) => {
@@ -9,7 +8,7 @@ const Product = ({ filteredProduct }) => {
 
   return (
     <div className={styles.container}>
-      <div key={filteredProduct.id} className={styles.display}>
+      {/* <div key={filteredProduct._id} className={styles.display}>
         <div>
           <img src={filteredProduct.image} className={styles.image} />
           <div className={styles.reviews}>
@@ -32,40 +31,17 @@ const Product = ({ filteredProduct }) => {
             <p className={styles.description}>{filteredProduct.description}</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export const getServerSideProps = async (ctx) => {
-  const id = parseInt(ctx.params.id);
-  const product = await getProducts(id);
-  const filteredProduct = product.filter((product) => product.id === id);
-
-  return { props: { filteredProduct: filteredProduct[0] } };
-};
-
-// export const getStaticProps = async (ctx) => {
+// export const getServerSideProps = async (ctx) => {
 //   const id = parseInt(ctx.params.id);
-//   const res = await fetch(`${server}/api/products/product/${id}`);
-//   const product = await res.json();
+//   const product = await getAllProducts(id);
+//   const filteredProduct = product.filter((product) => product.id === id);
 
-//   return {
-//     props: {
-//       product,
-//     },
-//   };
+//   return { props: { filteredProduct: filteredProduct[0] } };
 // };
 
-// export const getStaticPaths = async () => {
-//   const res = await fetch(`${server}/api/products`);
-//   const products = await res.json;
-//   const ids = products.map((product) => product.id);
-//   const paths = ids.map((id) => ({ params: { id: id.toString() } }));
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
 export default Product;

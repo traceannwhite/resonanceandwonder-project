@@ -1,6 +1,6 @@
-import Image from "next/image";
 import styles from "../styles/ProductCard.module.css";
 import Link from "next/link";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { server } from ".././congif/index";
 import { getProducts } from "../pages/api/products";
@@ -8,26 +8,48 @@ import { getProducts } from "../pages/api/products";
 const SellersProducts = ({ product }) => {
   const router = useRouter();
 
+  const [changeProduct, setChangeProduct] = useState([]);
+
+  const editProduct = async (product) => {
+    const response = await fetch(
+      `${server}/api/products/product/${product.id}`,
+      {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      }
+    );
+    getProducts();
+    router.push("/sellerprofile");
+  };
+
+  const handleChange = (e) => {
+    setChangeProduct({ ...newProduct, [e.target.name]: e.target.value });
+  };
   const deleteProduct = async (product) => {
-    const response = await fetch(`${server}/api/products/product/:id`, {
-      method: "delete",
-    });
+    const response = await fetch(
+      `${server}/api/products/product/${product.id}`,
+      {
+        method: "delete",
+      }
+    );
     getProducts();
     router.push("/sellerprofile");
   };
   return (
-    <div>
+    <div key={product.id}>
       <Link href={`/product/${product.id}`}>
         <div className={styles.card}>
           <img src={product.image} className={styles.image} />
-          <h4 className={styles.title}>{product.product}</h4>
+          <h4 className={styles.title}>{product.title}</h4>
           <p>$ {product.price}</p>
         </div>
       </Link>
-      <Link href="sellerprofile/updateproduct">
-        <button>Edit</button>
-      </Link>
-      <button onClick={deleteProduct}>Delete</button>
+
+      <button onClick={() => editProduct(product)}>Edit</button>
+      <button onClick={() => deleteProduct(product)}>Delete</button>
     </div>
   );
 };

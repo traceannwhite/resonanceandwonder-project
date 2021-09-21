@@ -26,7 +26,7 @@ const CartPage = () => {
       ) : (
         <div className={styles.grid}>
           {cart.map((item) => (
-            <div key={item.id} className={styles.card}>
+            <div key={item._id} className={styles.card}>
               <div>
                 <p>{item.seller}</p>
               </div>
@@ -63,8 +63,16 @@ const CartPage = () => {
             </div>
           ))}
           <div className={styles.checkout}>
-            <h3>Items Total: </h3>
-            <h3>${getTotalPrice().toFixed(2)}</h3>
+            <div className={styles.total}>
+              <h3>Items Total: </h3>
+              <h3>${getTotalPrice().toFixed(2)}</h3>
+            </div>
+            <form>
+              <input type="text" placeholder="Add promocode" />
+              <button>
+                <span>Apply</span>
+              </button>
+            </form>
           </div>
         </div>
       )}

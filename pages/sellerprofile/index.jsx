@@ -22,7 +22,7 @@ const SellerProfile = ({ products }) => {
       <div className={styles.infobox}>
         <h3>Your Current Products</h3>
         {products.map((product) => (
-          <SellersProducts key={product.id} product={product} />
+          <SellersProducts key={product._id} product={product} />
         ))}
       </div>
     </div>

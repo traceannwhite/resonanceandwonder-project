@@ -9,10 +9,10 @@ const ProductCard = ({ product }) => {
 
   return (
     <div>
-      <Link href={`/product/${product.id}`}>
+      <Link href={`/product/${product._id}`}>
         <div className={styles.card}>
           <img src={product.image} className={styles.image} />
-          <h4 className={styles.title}>{product.product}</h4>
+          <h4 className={styles.title}>{product.title}</h4>
           <h5 className={styles.seller}>{product.seller}</h5>
           <p>$ {product.price}</p>
         </div>
