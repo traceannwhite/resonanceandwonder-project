@@ -42,7 +42,7 @@ export default function Home() {
           <CategoryCard image="/image/home-and-living.jpeg" name="Home" />
           <CategoryCard image="/image/eco-friendly.jpeg" name="Eco-friendly" />
           <CategoryCard
-            image="https://imgur.com/qb6IW1f.png"
+            image="/image/Best-Body-Lotions-For-Women.jpeg"
             name="Self-care"
           />
         </div>

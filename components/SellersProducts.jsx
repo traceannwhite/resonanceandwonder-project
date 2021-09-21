@@ -2,7 +2,6 @@ import styles from "../styles/ProductCard.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { server } from ".././congif/index";
 import * as Realm from "realm-web";
 
 const SellersProducts = ({ product }) => {
@@ -66,9 +65,12 @@ const SellersProducts = ({ product }) => {
           <p>$ {product.price}</p>
         </div>
       </Link>
-
-      <button onClick={() => editProduct(product)}>Edit</button>
-      <button onClick={() => deleteProduct(product)}>Delete</button>
+      <button className={styles.button} onClick={() => editProduct(product)}>
+        Edit
+      </button>
+      <button className={styles.button} onClick={() => deleteProduct(product)}>
+        Delete
+      </button>
     </div>
   );
 };

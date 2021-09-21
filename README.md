@@ -8,8 +8,6 @@ Resonance & Wonder will be a business to consumer marketplace wbsite for approve
 
 ### Project Links
 
-- [Back end git](https://github.com/traceannwhite/RR-marketplace-backend/tree/master)
-- [Heroku Deployment](https://backend-marketplace-tw.herokuapp.com/)
 - [Front end git](https://github.com/traceannwhite/resonanceandwonder-project)
 - [Vercel Deployment](https://resonanceandwonder-project.vercel.app/)
 
@@ -124,8 +122,8 @@ Frontend
 
 - HTML
 - CSS
-- React, react-router-dom
-- Reactstrap
+- React
+- Redux
 - Next.js
-- Node
-- Express
+- MongoDB
+- Mongo Realm
