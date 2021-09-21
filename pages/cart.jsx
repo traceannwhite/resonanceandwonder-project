@@ -34,7 +34,7 @@ const CartPage = () => {
                 <div className={styles.image}>
                   <Image src={item.image} alt="" height="100" width="100" />
                 </div>
-                <p>{item.product}</p>
+                <p>{item.title}</p>
                 <p className={styles.quantity}>{item.quantity}</p>
                 <p className={styles.price}>$ {item.price}</p>
                 {/* Want to add ".toFixed(2) here, but not workign right */}

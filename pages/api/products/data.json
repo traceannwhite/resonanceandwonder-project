@@ -1,67 +1,31 @@
 [
   {
-    "id": 1,
-    "product": "Boho horizontal wall art, boho wall art, bohemiant, horizontal wall art, printable wall art, abstract botanical print wall art green beige",
+    "title": "Boho horizontal wall art, boho wall art, bohemian, horizontal wall art, printable wall art, pottery boho plant print wall art green beige",
     "category": "home",
     "seller": "MiracleArtPrints",
-    "image": "/image/boho-wall-art.png",
-    "price": 36,
-    "quantity": 50,
-    "SKU": "",
-    "description": "Description is TBD"
-  },
-  {
-    "id": 2,
-    "product": "Boho horizontal wall art, boho wall art, bohemiant, horizontal wall art, printable wall art, pottery boho plant print wall art green beige",
-    "category": "home",
-    "seller": "MiracleArtPrints",
-    "image": "/image/boho-pots.png",
+    "image": "https://res.cloudinary.com/dhcagrzcb/image/upload/v1632194663/Screen_Shot_2021-09-19_at_12.54.00_PM_a4meqj.png",
     "price": 30,
     "quantity": 50,
     "SKU": "",
     "description": "Description is TBD"
   },
   {
-    "id": 3,
-    "product": "Warm Winter Eco-Friendly Bamboo Socks",
+    "title": "Warm Winter Eco-Friendly Bamboo Socks",
     "category": "clothing",
     "seller": "OccasionsCardsGB",
-    "image": "/image/eco-socks.png",
+    "image": "https://res.cloudinary.com/dhcagrzcb/image/upload/v1632194663/Screen_Shot_2021-09-19_at_1.00.43_PM_wdec81.png",
     "price": 49.99,
     "quantity": 10,
     "SKU": "",
     "description": "Description is TBD"
   },
   {
-    "id": 7,
-    "product": "Chicken Shirt / Chicken Clothing / Chicken T Shirt / Women's Chicken Shirt / Chickens / Love Chickens / Chicken Love / Chicken Tee Shirt Bestseller",
-    "category": "clothing",
-    "seller": "LovesUSA",
-    "image": "/image/chicken-shirt.png",
-    "price": 18.99,
-    "quantity": 50,
-    "SKU": "",
-    "description": "Description is TBD"
-  },
-  {
-    "id": 16,
-    "product": "Avocado Body Butter - All Natural, Eczema-friendly Ingredients",
-    "category": "self-care",
-    "seller": "TheBodyShop",
-    "image": "/image/the-body-shop-body-butter.png",
-    "price": 14.99,
-    "quantity": 50,
-    "SKU": "",
-    "description": "Description is TBD"
-  },
-  {
-    "id": 22,
-    "product": "Beeswax Wrap - Reusable Beeswax Food Wrap - Natural Living Accessories - Eco friendly kitchen",
+    "title": "Beeswax Wrap - Reusable Beeswax Food Wrap - Natural Living Accessories - Eco friendly kitchen",
     "category": "eco-friendly",
     "seller": "FreewheelinMarket",
-    "image": "/image/beeswax-wrap.png",
+    "image": "https://res.cloudinary.com/dhcagrzcb/image/upload/v1632194663/Screen_Shot_2021-09-19_at_12.55.25_PM_lpaow9.png",
     "price": 59.99,
-    "quantity": 50,
+    "quantity": "50",
     "SKU": "",
     "description": "Description is TBD"
   }

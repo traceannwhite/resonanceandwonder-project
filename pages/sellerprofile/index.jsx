@@ -1,9 +1,25 @@
 import Link from "next/link";
 import SellersProducts from "../../components/SellersProducts";
 import styles from "../../styles/SellerProfile.module.css";
-import { getProducts } from "../api/products";
+import { useState, useEffect } from "react";
+import * as Realm from "realm-web";
 
-const SellerProfile = ({ products }) => {
+const SellerProfile = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(async () => {
+    const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+    const app = new Realm.App({ id: REALM_APP_ID });
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      const allProducts = await user.functions.getAllProducts();
+      setProducts(allProducts);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       <h1>Seller Profile</h1>
@@ -29,8 +45,4 @@ const SellerProfile = ({ products }) => {
   );
 };
 
-export async function getServerSideProps() {
-  const products = await getProducts();
-  return { props: { products } };
-}
 export default SellerProfile;
