@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <header>
+      <header className={styles.header}>
         <Link href="/">
           <img src="http://res.cloudinary.com/dhcagrzcb/image/upload/v1631639955/resonance_wonder_u5ooyz.png" />
         </Link>
@@ -25,16 +25,16 @@ const NavBar = () => {
           </li>
           <li className={styles.navlink}>
             <Link href="/cart">
-              <button>
-                <ShoppingCartIcon />
+              <div className={styles.carticon}>
+                <p>Cart</p>
                 <p>({getItemsCount()})</p>
-              </button>
+              </div>
             </Link>
           </li>
         </ul>
       </header>
-      <div>
-        <SearchIcon />
+      <div className={styles.searchbar}>
+        <SearchIcon className={styles.searchicon} />
         <input type="text" placeholder="Search for anything." />
       </div>
     </nav>

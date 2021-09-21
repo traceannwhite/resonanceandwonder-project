@@ -1,10 +1,15 @@
 .navbar {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+}
 .logo {
   font-size: 1.2rem;
   font-weight: 600;
@@ -28,4 +33,16 @@
 
 .navlink a:hover {
   color: #f9826c;
+}
+
+.searchicon {
+  width: 25px;
+}
+
+.searchbar input {
+  padding: 10px;
+}
+
+.carticon {
+  display: flex;
 }
