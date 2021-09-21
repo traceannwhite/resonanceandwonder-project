@@ -7,7 +7,12 @@ const Hero = () => {
         src="http://res.cloudinary.com/dhcagrzcb/image/upload/v1626735924/mountain-547363_jrh8ct.jpg"
         className={styles.image}
       />
-      <h1 className={styles.tagline}> What will resonate with you?</h1>
+      <div className={styles.taglinecontainer}>
+        <h1 className={styles.tagline}> What will resonate with you?</h1>
+        <Link href="/shop" className={styles.button}>
+          Shop Now
+        </Link>
+      </div>
     </div>
   );
 };
