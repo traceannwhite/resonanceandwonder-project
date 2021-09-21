@@ -1,4 +1,5 @@
 import ProductCard from "../components/ProductCard";
+import Pagination from "../components/Pagination";
 import styles from "../styles/ShopPage.module.css";
 import { getProducts } from "./api/products/index";
 
@@ -11,6 +12,7 @@ const ShopPage = ({ products }) => {
           <ProductCard key={product._id} product={product} />
         ))}
       </div>
+      <Pagination />
     </div>
   );
 };
