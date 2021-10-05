@@ -1,4 +1,5 @@
 import styles from "../styles/ProductCard.module.css";
+
 const Pagination = () => {
   return (
     <div className={styles.buttonscontainer}>

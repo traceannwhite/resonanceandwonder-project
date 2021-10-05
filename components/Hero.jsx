@@ -10,8 +10,8 @@ const Hero = () => {
       />
       <div className={styles.taglinecontainer}>
         <h1 className={styles.tagline}> What will resonate with you?</h1>
-        <Link href="/shop" className={styles.button}>
-          <button>Shop Now</button>
+        <Link href="/shop">
+          <button className={styles.button}>Shop Now</button>
         </Link>
       </div>
     </div>

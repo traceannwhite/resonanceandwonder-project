@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <nav className={styles.navbar}>
       <header className={styles.header}>
-        <Link href="/">
+        <Link href="/" className={styles.logo}>
           <img src="http://res.cloudinary.com/dhcagrzcb/image/upload/v1631639955/resonance_wonder_u5ooyz.png" />
         </Link>
         <ul className={styles.links}>

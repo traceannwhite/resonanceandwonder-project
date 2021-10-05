@@ -27,7 +27,7 @@
 import { useState, useEffect } from "react";
 import * as Realm from "realm-web";
 import ProductCard from "../components/ProductCard";
-import Pagination from "../components/Pagination";
+// import Pagination from "../components/Pagination";
 import styles from "../styles/ShopPage.module.css";
 
 export default function ShopPage() {
@@ -55,7 +55,7 @@ export default function ShopPage() {
             return <ProductCard key={product._id} product={product} />;
           })}
       </ul>
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   );
 }

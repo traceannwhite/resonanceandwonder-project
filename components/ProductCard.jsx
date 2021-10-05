@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className={styles.cardcontainer}>
       <Link href={`/product/${product._id}`}>
         <div className={styles.card}>
           <img src={product.image} className={styles.image} />
@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
           <p>$ {product.price}</p>
         </div>
       </Link>
-      <div className={styles.card}>
+      <div classname={styles.buttonscontainer}>
         <button
           onClick={() => dispatch(addToCart(product))}
           className={styles.button}
