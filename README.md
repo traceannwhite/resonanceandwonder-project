@@ -4,7 +4,7 @@
 
 ## Description
 
-Resonance & Wonder will be a business to consumer marketplace wbsite for approved businesses to sell approved products to consumers. While the website will resemble larger marketplaces like Etsy, companies and producst must meet certain criteria from the owner in order to list their products on the website. The website will have a sign up/login feature for customers and for businesses. It will include full CRUD funcionality for businesses to add and delete products from their account and allow consumers to add the products added by businesses to their cart for purchase. Available payment menthods initially will be limited to paypal and more options will be added as the product grows.
+Resonance & Wonder will be a business to consumer marketplace wbsite for businesses to sell products to consumers. While the website will resemble larger marketplaces like Etsy, companies and producst must meet certain criteria from the owner in order to list their products on the website (for example, B Corps will always be immediately approved!). The website will have a sign up/login feature for customers and for businesses in a later iteration and will include full CRUD funcionality from MongoDB Realm in the first iteration and access on the front-end for companies in the 2nd iteration to add and delete products from their account. Consumers will be able to add the products added by businesses to their cart for purchase. Available payment menthods are initially unavailable, but will be limited to paypal once added and more options will be added later as the website grows.
 
 ### Project Links
 
@@ -125,5 +125,14 @@ Frontend
 - React
 - Redux
 - Next.js
-- MongoDB
-- Mongo Realm
+- MongoDB Atlas
+- MongoDB Realm
+  - I am using MongoDB Realm to run queries against my MongoDB atlas cluster database, which removes the need for a server. User credentials can be managed through MongoDB Realm without risk of exposing or leaking any credentials once the roles are set.
+
+## Problems & Resolutions
+
+1. Data being pulled from MongoDB Realm is inside of a useEffect and I need to take the aysnc function out of the useEffect and separate them.
+
+1. Products on page take a moment to load, I'd like to make this process more immediate since the data being fetched is not a lot of data... it shouldn't be this slow.
+
+1. Getting a searchbar fully functional with filtering of products.

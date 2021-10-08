@@ -1,6 +1,8 @@
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 import * as Realm from "realm-web";
+import { useMongoDB } from "../providers/mongodb";
+import { useRealmApp } from "../providers/realm";
 
 import Hero from "../components/Hero";
 import CategoryCard from "../components/CategoryCard";
@@ -9,10 +11,11 @@ import ProductCard from "../components/ProductCard";
 export default function Home() {
   const [products, setProducts] = useState([]);
 
+  const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+  const app = new Realm.App({ id: REALM_APP_ID });
+  const credentials = Realm.Credentials.anonymous();
+
   useEffect(async () => {
-    const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
-    const app = new Realm.App({ id: REALM_APP_ID });
-    const credentials = Realm.Credentials.anonymous();
     try {
       const user = await app.logIn(credentials);
       const allProducts = await user.functions.getAllProducts();

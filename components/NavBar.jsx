@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import styles from "../styles/NavBar.module.css";
-import { ShoppingCartIcon, SearchIcon } from "@heroicons/react/outline";
+import { ShoppingCartIcon } from "@heroicons/react/outline";
 
 const NavBar = () => {
   const cart = useSelector((state) => state.cart);
@@ -21,7 +21,7 @@ const NavBar = () => {
             <Link href="/shop">Shop</Link>
           </li>
           <li className={styles.navlink}>
-            <Link href="/sellerprofile">My Profile</Link>
+            <Link href="/login">Log In</Link>
           </li>
           <li className={styles.navlink}>
             <Link href="/cart">
@@ -33,10 +33,6 @@ const NavBar = () => {
           </li>
         </ul>
       </header>
-      <div className={styles.searchbar}>
-        <SearchIcon className={styles.searchicon} />
-        <input type="text" placeholder="Search for anything." />
-      </div>
     </nav>
   );
 };
