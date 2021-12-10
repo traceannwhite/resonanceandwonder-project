@@ -1,23 +1,12 @@
 .cardcontainer {
-  /* margin: auto; */
   padding: 1em;
 }
 .card {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: auto; */
-  /* min-height: 400px;
-  max-width: 350px; */
   display: grid;
   grid-template-rows: 1fr 1fr;
 }
 
 .text {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 175px; */
   grid-row: 2 / 3;
   display: grid;
   grid-template-rows: 2fr 0.5fr 0.5fr;

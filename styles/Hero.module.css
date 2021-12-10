@@ -50,9 +50,7 @@
 
   .tagline {
     width: 100%;
-    /* background-image: url(http://res.cloudinary.com/dhcagrzcb/image/upload/v1626735924/mountain-547363_jrh8ct.jpg); */
     background-size: cover;
-    /* min-height: 250px; */
     border-radius: 10px;
   }
 }
