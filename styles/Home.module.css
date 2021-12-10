@@ -1,14 +1,15 @@
-.container {
-  padding: 0 1rem;
-}
-
 .small {
   display: flex;
+  padding: 9px;
 }
 
+.title {
+  padding: 16px 16px 0;
+}
 .cards {
   display: flex;
-  overflow: scroll;
+  justify-content: flex-start;
+  overflow-x: scroll;
 }
 @media screen and (max-width: 600px) {
   .small {

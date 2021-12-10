@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0 12px;
 }
 
 .header {
@@ -32,7 +32,7 @@
   position: relative;
   text-decoration: none;
   color: black;
-  top: 25px;
+  top: 33px;
 }
 
 .navlink a:hover {

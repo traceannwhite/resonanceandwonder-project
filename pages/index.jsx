@@ -29,26 +29,33 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.container}>
         <Hero />
-        <h1>Products</h1>
-        <ul className={styles.cards}>
-          {products &&
-            products.map((product) => {
-              return <ProductCard key={product._id} product={product} />;
-            })}
-        </ul>
-        <h1>Product Categories</h1>
-        <div className={styles.small}>
-          <CategoryCard
-            image="/image/clothing-and-shoes.jpeg"
-            name="Clothing"
-          />
-          <CategoryCard image="/image/home-and-living.jpeg" name="Home" />
-          <CategoryCard image="/image/eco-friendly.jpeg" name="Eco-friendly" />
-          <CategoryCard
-            image="/image/Best-Body-Lotions-For-Women.jpeg"
-            name="Self-care"
-          />
-        </div>
+        <section className="content">
+          <h1 className={styles.title}>Products</h1>
+          <ul className={styles.cards}>
+            {products &&
+              products.map((product) => {
+                return <ProductCard key={product._id} product={product} />;
+              })}
+          </ul>
+        </section>
+        <section className="content">
+          <h1 className={styles.title}>Product Categories</h1>
+          <div className={styles.small}>
+            <CategoryCard
+              image="/image/clothing-and-shoes.jpeg"
+              name="Clothing"
+            />
+            <CategoryCard image="/image/home-and-living.jpeg" name="Home" />
+            <CategoryCard
+              image="/image/eco-friendly.jpeg"
+              name="Eco-friendly"
+            />
+            <CategoryCard
+              image="/image/Best-Body-Lotions-For-Women.jpeg"
+              name="Self-care"
+            />
+          </div>
+        </section>
       </main>
     </div>
   );
