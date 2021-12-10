@@ -10,7 +10,13 @@
   display: flex;
   justify-content: flex-start;
   overflow-x: scroll;
+  margin: 0 10px;
 }
+
+.card {
+  padding: 10px;
+}
+
 @media screen and (max-width: 600px) {
   .small {
     display: grid;

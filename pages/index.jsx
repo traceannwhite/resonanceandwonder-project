@@ -35,7 +35,11 @@ export default function Home() {
             <ul className={styles.cards}>
               {products &&
                 products.map((product) => {
-                  return <ProductCard key={product._id} product={product} />;
+                  return (
+                    <li className={styles.card}>
+                      <ProductCard key={product._id} product={product} />
+                    </li>
+                  );
                 })}
             </ul>
           </section>

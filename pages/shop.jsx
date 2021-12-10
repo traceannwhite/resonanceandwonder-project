@@ -24,22 +24,17 @@ export default function ShopPage() {
     }
   }, []);
 
-  // const products = useMemo(async () => {
-  //   const firstPageIndex = (currentPage - 1) * PageSize;
-  //   const lastPageIndex = firstPageIndex + PageSize;
-  //   const user = await app.logIn(credentials);
-  //   const allProducts = await user.functions.getAllProducts();
-  //   setProducts(allProducts);
-  //   return products.slice(firstPageIndex, lastPageIndex);
-  // }, [currentPage]);
-
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>All Results</h1>
       <ul className={styles.cards}>
         {products &&
           products.map((product) => {
-            return <ProductCard key={product._id} product={product} />;
+            return (
+              <li className={styles.card}>
+                <ProductCard key={product._id} product={product} />
+              </li>
+            );
           })}
       </ul>
       {/* <Pagination /> */}

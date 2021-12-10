@@ -1,5 +1,5 @@
 .cardcontainer {
-  padding: 1em;
+  padding: 1em 0;
 }
 .card {
   display: grid;
@@ -22,10 +22,13 @@
 }
 
 .image {
-  object-fit: cover;
   max-height: 200px;
+  min-height: 200px;
+  min-width: 290px;
+  max-width: 290px;
   transition: all 5s cubic-bezier(0.14, 0.96, 0.91, 0.6);
   grid-row: 1 / 2;
+  object-fit: cover;
 }
 
 .button {
