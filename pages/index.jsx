@@ -36,7 +36,7 @@ export default function Home() {
               {products &&
                 products.map((product) => {
                   return (
-                    <li className={styles.card}>
+                    <li className={styles.card} key={product._id}>
                       <ProductCard key={product._id} product={product} />
                     </li>
                   );
