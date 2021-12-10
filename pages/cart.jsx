@@ -5,6 +5,7 @@ import {
   decrementQuantity,
   removeFromCart,
 } from "../redux/cart.slice";
+import Link from "next/link";
 import styles from "../styles/CartPage.module.css";
 
 const CartPage = () => {
@@ -20,9 +21,15 @@ const CartPage = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>Items in Your Cart</div>
+      <h1 className={styles.title}>Items In Your Cart</h1>
       {cart.length === 0 ? (
-        <h1>There is nothing in your cart, yet!</h1>
+        <div className={styles.empty}>
+          <img src="https://res.cloudinary.com/dhcagrzcb/image/upload/v1639168597/pngkey.com-empty-basket-png-3654131_gpvxbi.png" />
+          <h2>Uh oh, your cart is empty!</h2>
+          <Link href="/shop">
+            <button className={styles.shopbtn}>Shop Now</button>
+          </Link>
+        </div>
       ) : (
         <div className={styles.grid}>
           {cart.map((item) => (

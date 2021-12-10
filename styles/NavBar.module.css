@@ -1,8 +1,9 @@
-.navbar {
+/* .navbar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   padding: 0 12px;
 }
 
@@ -11,6 +12,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  position: fixed;
 }
 
 .header img {
@@ -46,3 +48,13 @@
 .carticon {
   display: flex;
 }
+
+@media screen and (max-width: 500px) {
+  .header img {
+    width: 150px;
+  }
+
+  .links {
+    display: none;
+  }
+} */

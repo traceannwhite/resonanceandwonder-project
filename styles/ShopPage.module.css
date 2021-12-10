@@ -17,7 +17,6 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   display: flex;
-  /* flex-direction: row; */
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -26,13 +25,5 @@
   display: flex;
   max-width: 290px;
   margin: 10px;
-  /* object-fit: contain; */
-  /* display: grid;
-  grid-template-rows: 1fr 1fr; */
 }
 
-/* .text {
-  grid-row: 2 / 3;
-  display: grid;
-  grid-template-rows: 2fr 0.5fr 0.5fr;
-} */
