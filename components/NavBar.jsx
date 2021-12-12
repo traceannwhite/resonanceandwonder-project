@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import styles from "../styles/NavBar.module.css";
-import { ShoppingCartIcon } from "@heroicons/react/outline";
 import HamburgerMenu from "./HamburgerMenu";
 import { useState } from "react";
 
@@ -38,9 +37,7 @@ const NavBar = () => {
           </li>
           <li>
             <Link href="/cart">
-              <a className="cart-link">
-                <ShoppingCartIcon />({getItemsCount()})
-              </a>
+              <a className="cart-link">Cart({getItemsCount()})</a>
             </Link>
           </li>
         </ul>
@@ -67,13 +64,14 @@ const NavBar = () => {
           padding-right: 10px;
         }
 
-        .navigation ul .cart-link {
+        .navigation ul a {
           display: flex;
         }
 
         .hamburger {
           display: none;
         }
+
         @media (max-width: 767px) {
           .hamburger {
             display: fixed;
@@ -86,16 +84,23 @@ const NavBar = () => {
           .navigation ul {
             display: ${hamburgerOpen ? "inline" : "none"};
             background-color: teal;
-            height: 10vh;
-            width: 100vw;
-            margin-top: 50px;
+            height: 12vh;
+            width: 20vw;
+            margin-top: 100px;
+            right: 0;
             position: absolute;
             text-align: right;
-            padding: 12px;
+            padding: 12px 3px;
+            z-index: 10;
+            border-radius: 0 0 10px 10px;
+            line-height: 2;
           }
 
-          .navigation ul li {
+          .navigation ul li a {
             color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
           }
         }
       `}</style>
