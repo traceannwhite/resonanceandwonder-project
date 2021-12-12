@@ -24,7 +24,13 @@ const CartPage = () => {
       <h1 className={styles.title}>Items In Your Cart</h1>
       {cart.length === 0 ? (
         <div className={styles.empty}>
-          <img src="https://res.cloudinary.com/dhcagrzcb/image/upload/v1639168597/pngkey.com-empty-basket-png-3654131_gpvxbi.png" />
+          <Image
+            src="https://res.cloudinary.com/dhcagrzcb/image/upload/v1639168597/pngkey.com-empty-basket-png-3654131_gpvxbi.png"
+            className="image"
+            alt="empty cart"
+            width="800px"
+            height="500px"
+          />
           <h2>Uh oh, your cart is empty!</h2>
           <Link href="/shop">
             <button className={styles.shopbtn}>Shop Now</button>

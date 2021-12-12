@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as Realm from "realm-web";
-
+import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/cart.slice";
 // import styles from "../../../styles/ProductPage.module.css";
@@ -29,7 +29,13 @@ const Product = () => {
   return (
     <div key={product._id}>
       <div className={styles.card}>
-        <img src={product.image} alt="" className={styles.image} />
+        <Image
+          src={product.image}
+          alt="product"
+          className={styles.image}
+          width="300px"
+          height="200px"
+        />
         <div className={styles.text}>
           <h4 className={styles.title}>{product.title}</h4>
           <h5 className={styles.seller}>{product.seller}</h5>

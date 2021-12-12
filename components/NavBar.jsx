@@ -33,7 +33,9 @@ const NavBar = () => {
           </li>
           <li>
             <Link href="/cart">
-              <p>Cart({getItemsCount()})</p>
+              <p>
+                <ShoppingCartIcon />({getItemsCount()})
+              </p>
             </Link>
           </li>
         </ul>
