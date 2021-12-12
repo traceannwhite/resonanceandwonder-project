@@ -1,7 +1,6 @@
 .container {
   padding: 0 1em;
   margin-bottom: 2rem;
-  margin: auto;
 }
 
 .grid {
@@ -9,6 +8,7 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr;
   max-width: 1200px;
+  margin: auto;
 }
 .card {
   display: flex;
@@ -29,6 +29,8 @@
 
 .image {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .details {
