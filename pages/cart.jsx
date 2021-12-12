@@ -33,7 +33,9 @@ const CartPage = () => {
           />
           <h2>Uh oh, your cart is empty!</h2>
           <Link href="/shop">
-            <button className={styles.shopbtn}>Shop Now</button>
+            <a>
+              <button className={styles.shopbtn}>Shop Now</button>
+            </a>
           </Link>
         </div>
       ) : (

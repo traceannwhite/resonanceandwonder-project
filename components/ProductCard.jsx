@@ -10,14 +10,16 @@ const ProductCard = ({ product }) => {
   return (
     <div className={styles.cardcontainer}>
       <Link href={`/product/${product._id}`}>
-        <div className={styles.card}>
-          <img src={product.image} alt="" className={styles.image} />
-          <div className={styles.text}>
-            <h4 className={styles.title}>{product.title}</h4>
-            <h5 className={styles.seller}>{product.seller}</h5>
-            <p>$ {product.price}</p>
+        <a>
+          <div className={styles.card}>
+            <img src={product.image} alt="product" className={styles.image} />
+            <div className={styles.text}>
+              <h4 className={styles.title}>{product.title}</h4>
+              <h5 className={styles.seller}>{product.seller}</h5>
+              <p>$ {product.price}</p>
+            </div>
           </div>
-        </div>
+        </a>
       </Link>
       <div className={styles.buttonscontainer}>
         <button

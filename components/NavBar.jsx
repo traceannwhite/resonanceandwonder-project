@@ -21,24 +21,26 @@ const NavBar = () => {
   return (
     <header className={styles.header}>
       <Link href="/" className="logo">
-        <img
-          src="http://res.cloudinary.com/dhcagrzcb/image/upload/v1631639955/resonance_wonder_u5ooyz.png"
-          alt="logo"
-        />
+        <a>
+          <img
+            src="http://res.cloudinary.com/dhcagrzcb/image/upload/v1631639955/resonance_wonder_u5ooyz.png"
+            alt="logo"
+          />
+        </a>
       </Link>
 
       <nav className="navigation">
         <ul>
           <li>
             <Link href="/shop">
-              <p>Shop</p>
+              <a>Shop</a>
             </Link>
           </li>
           <li>
             <Link href="/cart">
-              <p>
+              <a className="cart-link">
                 <ShoppingCartIcon />({getItemsCount()})
-              </p>
+              </a>
             </Link>
           </li>
         </ul>
@@ -63,6 +65,10 @@ const NavBar = () => {
         .navigation ul li {
           list-style-type: none;
           padding-right: 10px;
+        }
+
+        .navigation ul .cart-link {
+          display: flex;
         }
 
         .hamburger {

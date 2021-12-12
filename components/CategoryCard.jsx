@@ -13,10 +13,12 @@ const CategoryCard = ({ image, name }) => {
         width={1300}
       />
       <Link href={`/category/${name.toLowerCase()}`}>
-        <div className={styles.info}>
-          <h3>{name}</h3>
-          <p>SHOP NOW</p>
-        </div>
+        <a>
+          <div className={styles.info}>
+            <h3>{name}</h3>
+            <p>SHOP NOW</p>
+          </div>
+        </a>
       </Link>
     </div>
   );

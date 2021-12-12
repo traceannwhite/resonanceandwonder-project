@@ -34,7 +34,9 @@ const SellerProfile = () => {
             products to the website by filling out the Add Product form.
           </p>
           <Link href="/sellerprofile/newproduct">
-            <button className={styles.button}>Add New Product</button>
+            <a>
+              <button className={styles.button}>Add New Product</button>
+            </a>
           </Link>
         </div>
       </div>
