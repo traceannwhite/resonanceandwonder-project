@@ -59,11 +59,19 @@ const SellersProducts = ({ product }) => {
   return (
     <div key={product.id}>
       <Link href={`/product/${product.id}`}>
-        <div className={styles.card}>
-          <img src={product.image} className={styles.image} />
-          <h4 className={styles.title}>{product.title}</h4>
-          <p>$ {product.price}</p>
-        </div>
+        <a>
+          <div className={styles.card}>
+            <Image
+              src={product.image}
+              className={styles.image}
+              alt="product"
+              width="300px"
+              height="200px"
+            />
+            <h4 className={styles.title}>{product.title}</h4>
+            <p>$ {product.price}</p>
+          </div>
+        </a>
       </Link>
       <button className={styles.button} onClick={() => editProduct(product)}>
         Edit

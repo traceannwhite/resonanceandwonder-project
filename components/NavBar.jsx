@@ -21,7 +21,10 @@ const NavBar = () => {
   return (
     <header className={styles.header}>
       <Link href="/" className="logo">
-        <img src="http://res.cloudinary.com/dhcagrzcb/image/upload/v1631639955/resonance_wonder_u5ooyz.png" />
+        <img
+          src="http://res.cloudinary.com/dhcagrzcb/image/upload/v1631639955/resonance_wonder_u5ooyz.png"
+          alt="logo"
+        />
       </Link>
 
       <nav className="navigation">
