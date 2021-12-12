@@ -7,18 +7,18 @@ import * as Realm from "realm-web";
 const SellersProducts = ({ product }) => {
   const [products, setProducts] = useState([]);
 
-  useEffect(async () => {
-    const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
-    const app = new Realm.App({ id: REALM_APP_ID });
-    const credentials = Realm.Credentials.anonymous();
-    try {
-      const user = await app.logIn(credentials);
-      const allProducts = await user.functions.getAllProducts();
-      setProducts(allProducts);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+  // useEffect(async () => {
+  //   const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+  //   const app = new Realm.App({ id: REALM_APP_ID });
+  //   const credentials = Realm.Credentials.anonymous();
+  //   try {
+  //     const user = await app.logIn(credentials);
+  //     const allProducts = await user.functions.getAllProducts();
+  //     setProducts(allProducts);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
   const router = useRouter();
 
