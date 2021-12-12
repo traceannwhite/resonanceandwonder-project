@@ -14,14 +14,17 @@ export default function ShopPage() {
   const app = new Realm.App({ id: REALM_APP_ID });
   const credentials = Realm.Credentials.anonymous();
 
-  useEffect(async () => {
-    try {
-      const user = await app.logIn(credentials);
-      const allProducts = await user.functions.getAllProducts();
-      setProducts(allProducts);
-    } catch (error) {
-      console.log(error);
+  useEffect(() => {
+    async function init() {
+      try {
+        const user = await app.logIn(credentials);
+        const allProducts = await user.functions.getAllProducts();
+        setProducts(allProducts);
+      } catch (error) {
+        console.log(error);
+      }
     }
+    init();
   }, []);
 
   return (
