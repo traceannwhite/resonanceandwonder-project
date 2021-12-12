@@ -7,11 +7,10 @@ import * as Realm from "realm-web";
 const SellerProfile = () => {
   const [products, setProducts] = useState([]);
 
-  const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
-  const app = new Realm.App({ id: REALM_APP_ID });
-  const credentials = Realm.Credentials.anonymous();
-
   useEffect(() => {
+    const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+    const app = new Realm.App({ id: REALM_APP_ID });
+    const credentials = Realm.Credentials.anonymous();
     async function init() {
       try {
         const user = await app.logIn(credentials);

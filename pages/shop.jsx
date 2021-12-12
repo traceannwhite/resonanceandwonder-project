@@ -10,11 +10,10 @@ export default function ShopPage() {
   const [products, setProducts] = useState([]);
   // const [currentPage, setCurrentPage] = useState(1);
 
-  const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
-  const app = new Realm.App({ id: REALM_APP_ID });
-  const credentials = Realm.Credentials.anonymous();
-
   useEffect(() => {
+    const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+    const app = new Realm.App({ id: REALM_APP_ID });
+    const credentials = Realm.Credentials.anonymous();
     async function init() {
       try {
         const user = await app.logIn(credentials);

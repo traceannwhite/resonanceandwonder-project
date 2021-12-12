@@ -11,13 +11,12 @@ import ProductCard from "../components/ProductCard";
 export default function Home() {
   const [products, setProducts] = useState([]);
 
-  const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
-  const app = new Realm.App({ id: REALM_APP_ID });
-  const credentials = Realm.Credentials.anonymous();
-
   useEffect(() => {
     async function init() {
       try {
+        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const app = new Realm.App({ id: REALM_APP_ID });
+        const credentials = Realm.Credentials.anonymous();
         const user = await app.logIn(credentials);
         const allProducts = await user.functions.getAllProducts();
         setProducts(allProducts);
