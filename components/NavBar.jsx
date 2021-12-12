@@ -19,10 +19,10 @@ const NavBar = () => {
   };
 
   return (
-    <div>
-      {/* <Link href="/" className="logo">
+    <header className={styles.header}>
+      <Link href="/" className="logo">
         <img src="http://res.cloudinary.com/dhcagrzcb/image/upload/v1631639955/resonance_wonder_u5ooyz.png" />
-      </Link> */}
+      </Link>
 
       <nav className="navigation">
         <ul>
@@ -44,7 +44,7 @@ const NavBar = () => {
       <style jsx>{`
         .navigation {
           width: 100%;
-          height: 50px;
+          height: 100px;
           background-color: white;
         }
 
@@ -53,7 +53,6 @@ const NavBar = () => {
           flex-wrap: wrap;
           float: right;
           margin: 20px 0;
-          padding: 0 25px;
         }
 
         .navigation ul li {
@@ -68,7 +67,8 @@ const NavBar = () => {
           .hamburger {
             display: fixed;
             position: absolute;
-            right: 20px;
+            top: 20px;
+            right: 10px;
             z-index: 10;
           }
 
@@ -86,62 +86,9 @@ const NavBar = () => {
           .navigation ul li {
             color: white;
           }
-
-          // .logo {
-          //   width: 200px;
-          // }
-
-          // .logo img {
-          //   width: 200px;
-          // }
         }
       `}</style>
-    </div>
-    // <nav className={styles.navbar}>
-    //   <header className={styles.header}>
-    //     <Link href="/" className={styles.logo}>
-    //       <img src="http://res.cloudinary.com/dhcagrzcb/image/upload/v1631639955/resonance_wonder_u5ooyz.png" />
-    //     </Link>
-    //     <ul className={styles.links}>
-    //       <li className={styles.navlink}>
-    //         <Link href="/shop">Shop</Link>
-    //       </li>
-    //       <li className={styles.navlink}>
-    //         <Link href="/cart">
-    //           <div className={styles.carticon}>
-    //             <p>Cart</p>
-    //             <p>({getItemsCount()})</p>
-    //           </div>
-    //         </Link>
-    //       </li>
-    //     </ul>
-    //     <div className="hamburger" onClick={toggleHamburger}>
-    //       <HamburgerMenu />
-    //     </div>
-    //   </header>
-    //   <style jsx>{`
-    //     .hamburger {
-    //       display: none;
-    //     }
-    //     @media (max-width: 767px) {
-    //       .hamburger {
-    //         display: fixed;
-    //         position: absolute;
-    //         right: 20px;
-    //         z-index: 10;
-    //       }
-
-    //       .header ul {
-    //         display: ${hamburgerOpen ? "inline" : "none"};
-    //         background-color: teal;
-    //         height: 100vh;
-    //         width: 50vw;
-    //         margin-top: 50px;
-    //         position: absolute;
-    //       }
-    //     }
-    //   `}</style>
-    // </nav>
+    </header>
   );
 };
 
