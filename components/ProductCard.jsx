@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className={styles.cardcontainer}>
-      <Link href={`/product/${product._id}`}>
+      <Link href={`/product/${product.id}`}>
         <a>
           <div className={styles.card}>
             <img src={product.image} alt="product" className={styles.image} />

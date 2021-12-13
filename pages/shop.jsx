@@ -1,29 +1,27 @@
 import { useState, useEffect, useMemo } from "react";
-import * as Realm from "realm-web";
 import ProductCard from "../components/ProductCard";
-// import Pagination from "../components/Pagination";
 import styles from "../styles/ShopPage.module.css";
-
-// let PageSize = 6;
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db } from "../firebase";
 
 export default function ShopPage() {
   const [products, setProducts] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
-    const app = new Realm.App({ id: REALM_APP_ID });
-    const credentials = Realm.Credentials.anonymous();
-    async function init() {
-      try {
-        const user = await app.logIn(credentials);
-        const allProducts = await user.functions.getAllProducts();
-        setProducts(allProducts);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    init();
+    const collectionRef = collection(db, "products");
+
+    const q = query(collectionRef, orderBy("timestamp"));
+
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      setProducts(
+        querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+          timestamp: doc.data().timestamp?.toDate().getTime(),
+        }))
+      );
+    });
+    return unsubscribe;
   }, []);
 
   return (
@@ -33,13 +31,12 @@ export default function ShopPage() {
         {products &&
           products.map((product) => {
             return (
-              <li className={styles.card} key={product._id}>
-                <ProductCard key={product._id} product={product} />
+              <li className={styles.card} key={product.id}>
+                <ProductCard key={product.id} product={product} />
               </li>
             );
           })}
       </ul>
-      {/* <Pagination /> */}
     </div>
   );
 }

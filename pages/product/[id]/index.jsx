@@ -1,60 +1,61 @@
 import { useState, useEffect } from "react";
-import * as Realm from "realm-web";
-import Image from "next/image";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../redux/cart.slice";
-// import styles from "../../../styles/ProductPage.module.css";
-import styles from "../../../styles/ProductCard.module.css";
+import styles from "../../../styles/ProductPage.module.css";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db } from "../../../firebase";
+import IndividualProduct from "../../../components/IndividualProduct";
 
-const Product = () => {
-  const dispatch = useDispatch();
-  const [product, setProduct] = useState([]);
+export default function IndividualProductPage() {
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
-    const app = new Realm.App({ id: REALM_APP_ID });
-    const credentials = Realm.Credentials.anonymous();
-    async function init() {
-      try {
-        const user = await app.logIn(credentials);
-        const getProduct = await user.functions.getOneProduct();
-        setProduct(getProduct);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    init();
+    const collectionRef = collection(db, "products");
+
+    const q = query(collectionRef, orderBy("timestamp"));
+
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      setProducts(
+        querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+          timestamp: doc.data().timestamp?.toDate().getTime(),
+        }))
+      );
+    });
+    return unsubscribe;
   }, []);
 
   return (
-    <div key={product._id}>
-      <div className={styles.card}>
-        <Image
-          src={product.image}
-          alt="product"
-          className={styles.image}
-          width="300px"
-          height="200px"
-        />
-        <div className={styles.text}>
-          <h4 className={styles.title}>{product.title}</h4>
-          <h5 className={styles.seller}>{product.seller}</h5>
-          <p>$ {product.price}</p>
-        </div>
-      </div>
-      <div className={styles.buttonscontainer}>
-        <button
-          onClick={() => dispatch(addToCart(product))}
-          className={styles.button}
-        >
-          Add to Cart
-        </button>
+    <div className={styles.container}>
+      {/* <IndividualProduct key={product.id} product={product} /> */}
+      <h1 className={styles.title}>Product</h1>
+      <div className={styles.cards}>
+        {products &&
+          products.map((product) => {
+            return <IndividualProduct key={product.id} product={product} />;
+          })}
       </div>
     </div>
   );
-};
+}
 
-export default Product;
+// import Image from "next/image";
+// import { useDispatch } from "react-redux";
+// import IndividualProduct from "../../../components/IndividualProduct";
+// // import { addToCart } from "../../../redux/cart.slice";
+// // import styles from "../../../styles/ProductPage.module.css";
+// // import styles from "../../../styles/ProductCard.module.css";
+
+// const ProductPage = () => {
+//   // const dispatch = useDispatch();
+
+//   return (
+//     <div>
+//       <IndividualProduct />
+//     </div>
+//   );
+// };
+
+// export default ProductPage;
 
 // // import { getProducts } from "../../api/products/index";
 

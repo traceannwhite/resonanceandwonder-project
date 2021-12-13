@@ -1,8 +1,7 @@
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
-import * as Realm from "realm-web";
-import { useMongoDB } from "../providers/mongodb";
-import { useRealmApp } from "../providers/realm";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db } from "../firebase";
 
 import Hero from "../components/Hero";
 import CategoryCard from "../components/CategoryCard";
@@ -12,19 +11,20 @@ export default function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    async function init() {
-      try {
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
-        const app = new Realm.App({ id: REALM_APP_ID });
-        const credentials = Realm.Credentials.anonymous();
-        const user = await app.logIn(credentials);
-        const allProducts = await user.functions.getAllProducts();
-        setProducts(allProducts);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    init();
+    const collectionRef = collection(db, "products");
+
+    const q = query(collectionRef, orderBy("timestamp"));
+
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      setProducts(
+        querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+          timestamp: doc.data().timestamp?.toDate().getTime(),
+        }))
+      );
+    });
+    return unsubscribe;
   }, []);
 
   const loadedContent = () => {
