@@ -1,10 +1,10 @@
 import styles from "../../../styles/NewProductPage.module.css";
-import ProductInfoForm from "../../../components/ProductInfoForm";
+// import ProductInfoForm from "../../../components/ProductInfoForm";
 
 const NewProductPage = () => {
   return (
     <div className={styles.container}>
-      <ProductInfoForm />
+      {/* <ProductInfoForm /> */}
     </div>
   );
 };
