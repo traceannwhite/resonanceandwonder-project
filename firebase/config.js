@@ -1,6 +1,17 @@
+import {
+  getAuth,
+  getRedirectResult,
+  GoogleAuthProvider,
+  signInWithRedirect,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+// import { firebaseConfig } from "../firebase/config";
+import firebase from "firebase/app";
+import "firebase/firestore";
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getFirestore } from "firebase/firestore";
@@ -18,7 +29,47 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore();
-// const analytics = getAnalytics(app);
+const db = getFirestore(app);
 
 export { db };
+
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({
+  prompt: "select_account",
+  login_hint: "user@example.com",
+});
+
+const auth = getAuth();
+signInWithPopup(auth, provider)
+  .then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.email;
+    const credential = GoogleAuthProvider.credentialFromError(error);
+  });
+
+// getRedirectResult(auth)
+//   .then((result) => {
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+//     const user = result.user;
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     const email = error.email;
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//   });
+
+signOut(auth)
+  .then(() => {
+    // Sign-out successful.
+  })
+  .catch((error) => {
+    // An error happened.
+  });
