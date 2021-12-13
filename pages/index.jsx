@@ -1,7 +1,7 @@
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../firebase/config";
 
 import Hero from "../components/Hero";
 import CategoryCard from "../components/CategoryCard";

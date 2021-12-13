@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../../../styles/ProductPage.module.css";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db } from "../../../firebase";
+import { db } from "../../../firebase/config";
 import IndividualProduct from "../../../components/IndividualProduct";
 
 export default function IndividualProductPage() {

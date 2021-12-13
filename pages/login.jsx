@@ -1,7 +1,8 @@
 // import LogInForm from "../components/LogInForm";
+import styles from "../styles/LoginPage.module.css";
 
-const login = () => {
-  return <div>Login Component Goes Here</div>;
+const LoginPage = (props) => {
+  return <div>Login Page</div>;
 };
 
-export default login;
+export default LoginPage;
