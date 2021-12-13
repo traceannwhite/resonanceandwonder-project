@@ -1,11 +1,11 @@
 import Link from "next/link";
 // import SellersProducts from "../../components/SellersProducts";
 import styles from "../../styles/SellerProfile.module.css";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 // import * as Realm from "realm-web";
 
 const SellerProfile = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
   // useEffect(() => {
   //   const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
@@ -25,7 +25,7 @@ const SellerProfile = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Seller Profile</h1>
+      {/* <h1>Seller Profile</h1>
       <div className={styles.infobox}>
         <h3>Add a New Product</h3>
         <div className={styles.newproduct}>
@@ -45,7 +45,7 @@ const SellerProfile = () => {
         {/* {products.map((product) => (
           <SellersProducts key={product._id} product={product} />
         ))} */}
-      </div>
+      {/* </div> */} */}
     </div>
   );
 };

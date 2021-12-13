@@ -1,11 +1,7 @@
-import ProductInfoForm from "../../../components/ProductInfoForm";
+// import ProductInfoForm from "../../../components/ProductInfoForm";
 
 const UpdateProductPage = () => {
-  return (
-    <div>
-      <ProductInfoForm />
-    </div>
-  );
+  return <div>{/* <ProductInfoForm /> */}</div>;
 };
 
 export default UpdateProductPage;
