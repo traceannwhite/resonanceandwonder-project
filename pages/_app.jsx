@@ -5,18 +5,13 @@ import Meta from "../components/Meta";
 // import SearchBar from "../components/SearchBar";
 import store from "../redux/store";
 import "../styles/globals.css";
-import { auth } from "../firebase/config";
 
 function MyApp({ Component, pageProps }) {
-  const initialState = {
-    currentUser: null,
-  };
   return (
     <Provider store={store}>
       <div className="wrapper">
         <Meta />
         <NavBar />
-        {/* <SearchBar /> */}
         <Component {...pageProps} />
         <Footer />
       </div>

@@ -38,8 +38,8 @@ export default function Home() {
               {products &&
                 products.map((product) => {
                   return (
-                    <li className={styles.card} key={product._id}>
-                      <ProductCard key={product._id} product={product} />
+                    <li className={styles.card} key={product.id}>
+                      <ProductCard key={product.id} product={product} />
                     </li>
                   );
                 })}

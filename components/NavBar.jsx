@@ -36,11 +36,6 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/login">
-              <a>Login</a>
-            </Link>
-          </li>
-          <li>
             <Link href="/cart">
               <a className="cart-link">Cart({getItemsCount()})</a>
             </Link>
